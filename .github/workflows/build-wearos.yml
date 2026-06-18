@@ -1,0 +1,45 @@
+name: Build WearOS APK
+
+on:
+  push:
+    paths:
+      - 'AuthenticatorPro.WearOS/**'
+      - 'AuthenticatorPro.Droid.Shared/**'
+      - 'AuthenticatorPro.Shared/**'
+      - '.github/workflows/build-wearos.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore NuGet packages
+      run: nuget restore AuthenticatorPro.sln
+
+    - name: Build WearOS (Debug)
+      run: msbuild AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj /p:Configuration=Debug /p:AndroidPackageFormat=apk
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: wearos-apk-debug
+        path: AuthenticatorPro.WearOS/bin/Debug/*.apk
+
+    - name: Build WearOS (Release)
+      run: msbuild AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj /p:Configuration=Release /p:AndroidPackageFormat=apk
+
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: wearos-apk-release
+        path: AuthenticatorPro.WearOS/bin/Release/*.apk

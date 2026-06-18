@@ -1,11 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appName" translatable="false">Authenticator Pro</string>
     <string name="displayName">Authenticator</string>
 
     <string name="noAuthenticators">No Authenticators</string>
-    <string name="noAuthenticatorsMessage">Nothing here. Add some authenticators from the phone app.</string>
+    <string name="noAuthenticatorsMessage">Tap + to add an authenticator</string>
     <string name="hotpNotSupported">HOTP not supported</string>
 
     <string name="categoryAll">All</string>
     <string name="offline">Offline</string>
+    <string name="addAuthenticator">Add Authenticator</string>
+    <string name="delete">Delete</string>
+    <string name="setDefault">Set as default</string>
+    <string name="confirmDelete">Delete this authenticator?</string>
+    <string name="cancel">Cancel</string>
 </resources>

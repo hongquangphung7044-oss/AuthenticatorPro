@@ -66,7 +66,7 @@
         <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
         <AndroidUseAapt2>true</AndroidUseAapt2>
         <AndroidLinkTool>r8</AndroidLinkTool>
-        <AndroidLinkSkip>AuthenticatorPro.Shared;AuthenticatorPro.Droid.Shared;Xamarin.GooglePlayServices.Wearable</AndroidLinkSkip>
+        <AndroidLinkSkip>AuthenticatorPro.Shared;AuthenticatorPro.Droid.Shared</AndroidLinkSkip>
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="System" />
@@ -81,12 +81,14 @@
         <Compile Include="src\Data\WearAuthenticatorCategoryComparer.cs" />
         <Compile Include="src\Data\WearAuthenticatorComparer.cs" />
         <Compile Include="src\Data\WearCategoryComparer.cs" />
+        <Compile Include="src\Data\LocalAuthDatabase.cs" />
         <Compile Include="src\List\AuthenticatorListAdapter.cs" />
         <Compile Include="src\List\AuthenticatorListHolder.cs" />
         <Compile Include="src\List\CategoryListAdapter.cs" />
         <Compile Include="src\List\AuthenticatorListLayoutCallback.cs" />
         <Compile Include="src\Activity\CodeActivity.cs" />
         <Compile Include="src\Activity\MainActivity.cs" />
+        <Compile Include="src\Activity\AddAuthActivity.cs" />
         <Compile Include="Resources\Resource.designer.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="src\Util\PreferenceWrapper.cs" />
@@ -139,9 +141,6 @@
         </PackageReference>
         <PackageReference Include="Xamarin.Google.Android.Material">
             <Version>1.6.1.1</Version>
-        </PackageReference>
-        <PackageReference Include="Xamarin.GooglePlayServices.Wearable">
-            <Version>117.1.0.6</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
@@ -368,6 +367,12 @@
     </ItemGroup>
     <ItemGroup>
         <AndroidResource Include="Resources\drawable-hdpi\ic_action_star.png" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\drawable\plus.xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidAsset Include="Assets\add_auth.axml" />
     </ItemGroup>
     <ItemGroup>
         <AndroidAotProfile Include="custom.aprof" />
