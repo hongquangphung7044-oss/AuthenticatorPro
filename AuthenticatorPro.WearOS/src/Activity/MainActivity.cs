@@ -19,6 +19,7 @@ using AuthenticatorPro.WearOS.Cache;
 using AuthenticatorPro.WearOS.Data;
 using AuthenticatorPro.WearOS.List;
 using AuthenticatorPro.WearOS.Util;
+using Google.Android.Material.FloatingActionButton;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace AuthenticatorPro.WearOS.Activity
         private LinearLayout _emptyLayout;
         private CircularProgressLayout _circularProgressLayout;
         private WearableRecyclerView _authList;
-        private FloatingActionButton _fabAdd;
+        private global::Google.Android.Material.FloatingActionButton.FloatingActionButton _fabAdd;
 
         private AuthenticatorView _authView;
         private ListCache<WearAuthenticator> _authCache;
@@ -140,7 +141,7 @@ namespace AuthenticatorPro.WearOS.Activity
             _circularProgressLayout = FindViewById<CircularProgressLayout>(Resource.Id.layoutCircularProgress);
             _emptyLayout = FindViewById<LinearLayout>(Resource.Id.layoutEmpty);
             _authList = FindViewById<WearableRecyclerView>(Resource.Id.list);
-            _fabAdd = FindViewById<FloatingActionButton>(Resource.Id.fabAdd);
+            _fabAdd = FindViewById<global::Google.Android.Material.FloatingActionButton.FloatingActionButton>(Resource.Id.fabAdd);
 
             _authList.EdgeItemsCenteringEnabled = true;
             _authList.HasFixedSize = true;
@@ -244,11 +245,7 @@ namespace AuthenticatorPro.WearOS.Activity
 
             var builder = new AlertDialog.Builder(this);
             builder.SetTitle(item.Issuer);
-            builder.SetItems(new Java.Lang.String[]
-            {
-                new Java.Lang.String("Set as default"),
-                new Java.Lang.String("Delete")
-            }, (s, args) =>
+            builder.SetItems(new string[] { "Set as default", "Delete" }, (sender, args) =>
             {
                 switch (args.Which)
                 {
