@@ -17,29 +17,31 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
 
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2
+    - name: Install Android workload
+      run: dotnet workload install android
 
-    - name: Restore NuGet packages
-      run: nuget restore AuthenticatorPro.sln
+    - name: Restore
+      run: dotnet restore AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj
 
     - name: Build WearOS (Debug)
-      run: msbuild AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj /p:Configuration=Debug /p:AndroidPackageFormat=apk
+      run: dotnet build AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj -c Debug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: wearos-apk-debug
-        path: AuthenticatorPro.WearOS/bin/Debug/*.apk
+        path: AuthenticatorPro.WearOS/bin/Debug/net8.0-android/*.apk
 
     - name: Build WearOS (Release)
-      run: msbuild AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj /p:Configuration=Release /p:AndroidPackageFormat=apk
+      run: dotnet build AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj -c Release
 
     - name: Upload Release APK
       uses: actions/upload-artifact@v4
       with:
         name: wearos-apk-release
-        path: AuthenticatorPro.WearOS/bin/Release/*.apk
+        path: AuthenticatorPro.WearOS/bin/Release/net8.0-android/*.apk
