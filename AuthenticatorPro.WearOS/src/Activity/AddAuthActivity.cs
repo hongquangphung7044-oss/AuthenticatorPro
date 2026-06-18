@@ -93,6 +93,7 @@ namespace AuthenticatorPro.WearOS.Activity
             await db.Add(auth);
 
             Toast.MakeText(this, "Authenticator added", ToastLength.Short).Show();
+            SetResult(Result.Ok);
             Finish();
         }
     }
