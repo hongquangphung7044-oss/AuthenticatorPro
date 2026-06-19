@@ -9,4 +9,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.0.2" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AuthenticatorPro.Shared\AuthenticatorPro.Shared.csproj" />
+  </ItemGroup>
 </Project>
