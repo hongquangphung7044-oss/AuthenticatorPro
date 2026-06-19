@@ -3,6 +3,7 @@
     <TargetFramework>net10.0-android</TargetFramework>
     <RootNamespace>AuthenticatorPro.Droid.Shared</RootNamespace>
     <AssemblyName>AuthenticatorPro.Droid.Shared</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
   </PropertyGroup>
   <ItemGroup>

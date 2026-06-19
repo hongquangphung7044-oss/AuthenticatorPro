@@ -12,6 +12,7 @@
     <AndroidPackageFormat>apk</AndroidPackageFormat>
     <SupportedOSPlatformVersion>23</SupportedOSPlatformVersion>
     <AndroidUseAapt2>true</AndroidUseAapt2>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
