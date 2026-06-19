@@ -14,6 +14,12 @@
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <AndroidSupportedAbis>arm64-v8a;armeabi-v7a</AndroidSupportedAbis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <AndroidLinkMode>Full</AndroidLinkMode>
