@@ -17,11 +17,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup .NET 8
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
-
     - name: Install Android workload
       run: dotnet workload install android
 
@@ -35,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: wearos-apk-debug
-        path: AuthenticatorPro.WearOS/bin/Debug/net8.0-android/*.apk
+        path: AuthenticatorPro.WearOS/bin/Debug/net10.0-android/*.apk
 
     - name: Build WearOS (Release)
       run: dotnet build AuthenticatorPro.WearOS/AuthenticatorPro.WearOS.csproj -c Release
@@ -44,4 +39,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: wearos-apk-release
-        path: AuthenticatorPro.WearOS/bin/Release/net8.0-android/*.apk
+        path: AuthenticatorPro.WearOS/bin/Release/net10.0-android/*.apk
