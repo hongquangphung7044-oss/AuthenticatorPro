@@ -9,6 +9,7 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AuthenticatorPro.Droid.Shared.Query;
 using AuthenticatorPro.Shared.Data;
+using AuthenticatorPro.Shared.Data.Generator;
 using AuthenticatorPro.WearOS.Data;
 using System;
 

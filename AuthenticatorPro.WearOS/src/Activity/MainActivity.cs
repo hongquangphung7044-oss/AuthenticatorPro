@@ -243,7 +243,7 @@ namespace AuthenticatorPro.WearOS.Activity
             if (item == null)
                 return;
 
-            var builder = new AlertDialog.Builder(this);
+            var builder = new Android.App.AlertDialog.Builder(this);
             builder.SetTitle(item.Issuer);
             builder.SetItems(new string[] { "Set as default", "Delete" }, (sender, args) =>
             {
